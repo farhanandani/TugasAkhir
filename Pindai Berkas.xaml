@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>788,2451.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>768,2411.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Pindai_Berkas_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -124,7 +124,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Pindai_Berkas" sap:VirtualizedContainerService.HintSize="766.4,2386.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Pindai_Berkas" sap:VirtualizedContainerService.HintSize="766.4,2346.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Nama" />
       <Variable x:TypeArguments="x:String" Name="String_DestinationFolder" />
@@ -148,20 +148,20 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'brother iprint&amp;scan.exe'" FileName="C:\Program Files (x86)\Brother\iPrint&amp;Scan\brother iprint&amp;scan.exe" sap:VirtualizedContainerService.HintSize="704,1855.2" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="cdad17a31124c7db4c518a4d6351e0a0" Selector="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Brother iPrint&amp;amp;Scan' /&gt;">
+    <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'brother iprint&amp;scan.exe'" FileName="C:\Program Files (x86)\Brother\iPrint&amp;Scan\brother iprint&amp;scan.exe" sap:VirtualizedContainerService.HintSize="704,1815.2" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="cdad17a31124c7db4c518a4d6351e0a0" Selector="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Brother iPrint&amp;amp;Scan' /&gt;">
       <ui:OpenApplication.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="670.4,1708" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence sap:VirtualizedContainerService.HintSize="670.4,1668" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="608,1596" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="608,1556" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -212,7 +212,7 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="50000" DisplayName="Click 'push button  Save to PC'" sap:VirtualizedContainerService.HintSize="545.6,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Save to PC'" sap:VirtualizedContainerService.HintSize="545.6,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
@@ -224,17 +224,14 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caa91f51-974b-417f-b9a5-fb4d40bf365d" InformativeScreenshot="f5f240899756f6880b1db1e9e69c758f" Selector="&lt;ctrl name='Rodem.UI.Core.DisplayObjects.ScanActionDisplayObject' role='list item' /&gt;&lt;ctrl name='Save to PC' role='push button' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caa91f51-974b-417f-b9a5-fb4d40bf365d" InformativeScreenshot="f5f240899756f6880b1db1e9e69c758f" Selector="&lt;ctrl name='Rodem.UI.Core.DisplayObjects.ScanActionDisplayObject' role='list item' /&gt;&lt;ctrl name='Save to PC' role='push button' /&gt;" TimeoutMS="50000">
                     <ui:Target.WaitForReady>
                       <InArgument x:TypeArguments="ui:WaitForReady" />
                     </ui:Target.WaitForReady>
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Save to PC" sap:VirtualizedContainerService.HintSize="545.6,977.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="839a66d3-88da-4b05-b6a4-ee84deb284b5" Version="V2">
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Save to PC" sap:VirtualizedContainerService.HintSize="545.6,937.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="839a66d3-88da-4b05-b6a4-ee84deb284b5" Version="V2">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
