@@ -1,0 +1,8 @@
+*.txt
+\Surat Pengantar\*.*
+\All Documents\*.*
+\Scan\*.*
+
+!\Surat Pengantar\*.txt
+!\All Documents\*.txt
+!\Scan\*.txt
