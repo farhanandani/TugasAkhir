@@ -1,4 +1,4 @@
 *.txt
-\Surat Pengantar\*.docx
-\All Documents\*.pdf
-\Scan\*.pdf
+/Surat Pengantar/*.docx
+/All Documents/*.pdf
+/Scan/*.pdf
