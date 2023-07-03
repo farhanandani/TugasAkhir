@@ -6,3 +6,10 @@
 !/Surat Pengantar/*.txt
 !/All Documents/*.txt
 !/Scan/*.txt
+
+/.entities
+/.local
+/.project
+/.settings
+/.templates
+/.tmh
