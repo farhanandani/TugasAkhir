@@ -367,7 +367,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">375.20000000000005,324.4 375.20000000000005,394.4000000000001</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Proses verifikasi berkas" DisplayName="Seq. Verification" sap:VirtualizedContainerService.HintSize="716,3328.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence sap2010:Annotation.AnnotationText="Proses verifikasi berkas" DisplayName="Seq. Verification" sap:VirtualizedContainerService.HintSize="716,2284" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Int32" Name="Int_MaxOrganizationMember" />
                         <Variable x:TypeArguments="x:Int32" Name="Int_MaxRetry" />
@@ -463,13 +463,13 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="653.6,2244" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[ListOfDict_CurrentScanned]">
+                      <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="653.6,1199.2" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[ListOfDict_CurrentScanned]">
                         <ui:ForEach.Body>
                           <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="currentDictionaryOfTextAndText" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="620,2072" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="466.4,1027.2" sap2010:WorkflowViewState.IdRef="Sequence_39">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="String_Nama" />
                                 <Variable x:TypeArguments="x:String" Name="String_NIM" />
@@ -477,13 +477,14 @@
                                 <Variable x:TypeArguments="x:String" Name="String_Instansi" />
                                 <Variable x:TypeArguments="x:String" Name="String_AlamatInstansi" />
                                 <Variable x:TypeArguments="x:String" Name="String_WaktuPelaksanaan" />
+                                <Variable x:TypeArguments="sd:DataRow" Name="DataRow_New" />
                               </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="576.8,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                                 <ui:MultipleAssign.AssignOperations>
                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
@@ -537,10 +538,12 @@
                                   </scg:List>
                                 </ui:MultipleAssign.AssignOperations>
                               </ui:MultipleAssign>
-                              <If sap2010:Annotation.AnnotationText="Melakukan verifikasi" Condition="[String_Nama = &quot;&quot; OR String_NIM = &quot;&quot; OR String_Email = &quot;&quot; OR String_Instansi = &quot;&quot; OR String_AlamatInstansi = &quot;&quot; OR String_WaktuPelaksanaan = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="576.8,1685.6" sap2010:WorkflowViewState.IdRef="If_4">
+                              <If sap2010:Annotation.AnnotationText="Melakukan verifikasi" Condition="[String_Nama = &quot;&quot; OR String_NIM = &quot;&quot; OR String_Email = &quot;&quot; OR String_Instansi = &quot;&quot; OR String_AlamatInstansi = &quot;&quot; OR String_WaktuPelaksanaan = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="423.2,84" sap2010:WorkflowViewState.IdRef="If_4">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
@@ -560,97 +563,31 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="543.2,1278.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="377.6,734.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <If sap2010:Annotation.AnnotationText="Verifikasi apakah dokumen lolos persyaratan &quot;Member di Instansi di bawah 5&quot;" Condition="[IF(Dict_NumberOfOrganizationMember Is Nothing, True, IF(Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)) &lt; Int_MaxOrganizationMember, False))]" sap:VirtualizedContainerService.HintSize="500,1188.8" sap2010:WorkflowViewState.IdRef="If_5">
+                                    <If sap2010:Annotation.AnnotationText="Verifikasi apakah dokumen lolos persyaratan &quot;Member di Instansi di bawah 5&quot;" Condition="[IF(Dict_NumberOfOrganizationMember Is Nothing, True, IF(Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)) &lt; Int_MaxOrganizationMember, False))]" sap:VirtualizedContainerService.HintSize="334.4,644.8" sap2010:WorkflowViewState.IdRef="If_5">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="466.4,781.6" sap2010:WorkflowViewState.IdRef="Sequence_40">
-                                          <Sequence.Variables>
-                                            <Variable x:TypeArguments="sd:DataRow" Name="DataRow_New" />
-                                          </Sequence.Variables>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="300,224.8" sap2010:WorkflowViewState.IdRef="Sequence_40">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="423.2,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="Add">
+                                          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="256.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="Add">
                                             <InvokeMethod.TargetObject>
                                               <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[ListOfDict_Acceptable]</InArgument>
                                             </InvokeMethod.TargetObject>
                                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[currentDictionaryOfTextAndText]</InArgument>
                                           </InvokeMethod>
-                                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,288.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
-                                            <ui:MultipleAssign.AssignOperations>
-                                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_44">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="sd:DataRow">[DataRow_New]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="sd:DataRow">[DataTable_GSheet.NewRow]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Nama")]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="x:Object">[String_Nama]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("NIM")]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="x:Object">[String_NIM]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_47">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Email")]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="x:Object">[String_Email]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_48">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Instansi")]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="x:Object">[String_Instansi]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_49">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Alamat Instansi")]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="x:Object">[String_AlamatInstansi]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_50">
-                                                  <ui:AssignOperation.To>
-                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Waktu Pelaksanaan")]</OutArgument>
-                                                  </ui:AssignOperation.To>
-                                                  <ui:AssignOperation.Value>
-                                                    <InArgument x:TypeArguments="x:Object">[String_WaktuPelaksanaan]</InArgument>
-                                                  </ui:AssignOperation.Value>
-                                                </ui:AssignOperation>
-                                              </scg:List>
-                                            </ui:MultipleAssign.AssignOperations>
-                                          </ui:MultipleAssign>
-                                          <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[DataRow_New]" DataTable="[DataTable_GSheet]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="423.2,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                                         </Sequence>
                                       </If.Then>
                                       <If.Else>
@@ -672,6 +609,69 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,288.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+                                <ui:MultipleAssign.AssignOperations>
+                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_51">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="sd:DataRow">[DataRow_New]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="sd:DataRow">[DataTable_GSheet.NewRow]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_52">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Nama")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Object">[String_Nama]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_53">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("NIM")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Object">[String_NIM]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_54">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Email")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Object">[String_Email]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_55">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Instansi")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Object">[String_Instansi]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_56">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Alamat Instansi")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Object">[String_AlamatInstansi]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_57">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Waktu Pelaksanaan")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Object">[String_WaktuPelaksanaan]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                  </scg:List>
+                                </ui:MultipleAssign.AssignOperations>
+                              </ui:MultipleAssign>
+                              <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[DataRow_New]" DataTable="[DataTable_GSheet]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="423.2,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                             </Sequence>
                           </ActivityAction>
                         </ui:ForEach.Body>
