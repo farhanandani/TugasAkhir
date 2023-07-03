@@ -216,16 +216,16 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <av:Point x:Key="ShapeLocation">10,42.400000000000006</av:Point>
           <av:Size x:Key="ShapeSize">60,75.2</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">70,80 100,80 100,-13.599999999999994 590,-13.599999999999994 590,16.400000000000006</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">70,80 180,80</av:PointCollection>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           <x:Double x:Key="Height">901.6</x:Double>
           <x:Double x:Key="Width">780</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID3</x:Reference>
+        <x:Reference>__ReferenceID11</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep>
+      <FlowStep x:Name="__ReferenceID11">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">180,16.400000000000006</av:Point>
@@ -361,13 +361,14 @@
                         <av:PointCollection x:Key="ConnectorLocation">375.20000000000005,324.4 375.20000000000005,394.4000000000001</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Proses verifikasi berkas" DisplayName="Seq. Verification" sap:VirtualizedContainerService.HintSize="200,114.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence sap2010:Annotation.AnnotationText="Proses verifikasi berkas" DisplayName="Seq. Verification" sap:VirtualizedContainerService.HintSize="869.6,5046.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Int32" Name="Int_MaxOrganizationMember" />
                         <Variable x:TypeArguments="x:Int32" Name="Int_MaxRetry" />
                         <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="ListOfDict_CurrentScanned" />
                         <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="ListOfDict_Gsheet" />
                         <Variable x:TypeArguments="scg:Dictionary(x:String, x:Int32)" Name="Dict_NumberOfOrganizationMember" />
+                        <Variable x:TypeArguments="scg:Dictionary(x:String, x:Int32)" Name="Dict_NumberOfEmail" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -375,7 +376,7 @@
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="653.6,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="807.2,288.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -426,10 +427,18 @@
                                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[IF(ListOfDict_Gsheet Is Nothing, Nothing, ListOfDict_Gsheet.AsEnumerable.GroupBy(Function(Item) Regex.Replace(Item("Instansi").ToLower.Trim, "[\W]+", "")).ToDictionary(Function(kv) kv.Key, Function(kv) kv.Count))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_69">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfEmail]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[IF(ListOfDict_Gsheet Is Nothing, Nothing, ListOfDict_Gsheet.AsEnumerable.GroupBy(Function(Item) Item("Email").ToString.ToLower.Trim).ToDictionary(Function(kv) kv.Key, Function(kv) kv.Count))]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
                       </ui:MultipleAssign>
-                      <If sap2010:Annotation.AnnotationText="Jika DataTable_Gsheet = Nothing, maka buat DataTable baru" Condition="[ListOfDict_Gsheet Is Nothing]" sap:VirtualizedContainerService.HintSize="653.6,364" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If sap2010:Annotation.AnnotationText="Jika DataTable_Gsheet = Nothing, maka buat DataTable baru" Condition="[ListOfDict_Gsheet Is Nothing]" sap:VirtualizedContainerService.HintSize="807.2,364" sap2010:WorkflowViewState.IdRef="If_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -457,13 +466,13 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="653.6,2244.8" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[ListOfDict_CurrentScanned]">
+                      <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="807.2,3678.4" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[ListOfDict_CurrentScanned]">
                         <ui:ForEach.Body>
                           <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="currentDictionaryOfTextAndText" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="466.4,2056.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="773.6,3490.4" sap2010:WorkflowViewState.IdRef="Sequence_39">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="String_Nama" />
                                 <Variable x:TypeArguments="x:String" Name="String_NIM" />
@@ -478,7 +487,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="730.4,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                                 <ui:MultipleAssign.AssignOperations>
                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
@@ -502,7 +511,7 @@
                                         <OutArgument x:TypeArguments="x:String">[String_Email]</OutArgument>
                                       </ui:AssignOperation.To>
                                       <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:String">[currentDictionaryOfTextAndText("Email").Trim]</InArgument>
+                                        <InArgument x:TypeArguments="x:String">[Regex.Replace(Regex.Replace(IF(Information.IsNumeric(String_NIM), Regex.Replace(currentDictionaryOfTextAndText("Email").Trim, "(?&lt;=\.).*(?=\@)", String_NIM), currentDictionaryOfTextAndText("Email").Trim), "\s", ""), "(?&lt;=\@).*", "student.itera.ac.id")]</InArgument>
                                       </ui:AssignOperation.Value>
                                     </ui:AssignOperation>
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
@@ -532,7 +541,7 @@
                                   </scg:List>
                                 </ui:MultipleAssign.AssignOperations>
                               </ui:MultipleAssign>
-                              <If sap2010:Annotation.AnnotationText="Melakukan verifikasi" Condition="[String_Nama = &quot;&quot; OR String_NIM = &quot;&quot; OR String_Email = &quot;&quot; OR String_Instansi = &quot;&quot; OR String_AlamatInstansi = &quot;&quot; OR String_WaktuPelaksanaan = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="423.2,1113.6" sap2010:WorkflowViewState.IdRef="If_4">
+                              <If sap2010:Annotation.AnnotationText="Melakukan verifikasi" Condition="[String_Nama = &quot;&quot; OR String_NIM = &quot;&quot; OR String_Email = &quot;&quot; OR String_Instansi = &quot;&quot; OR String_AlamatInstansi = &quot;&quot; OR String_WaktuPelaksanaan = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="730.4,3104" sap2010:WorkflowViewState.IdRef="If_4">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -557,32 +566,293 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="377.6,674.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="696.8,2664.8" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[If(Dict_NumberOfOrganizationMember Is Nothing, &quot;Data GSheet belum ada.&quot;, If(Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;) &amp; &quot;: &quot; &amp;  Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), &quot;Nothing&quot;))]" />
-                                    <If sap2010:Annotation.AnnotationText="Verifikasi apakah dokumen lolos persyaratan &quot;Member di Instansi di bawah 5&quot;" Condition="[IF(Dict_NumberOfOrganizationMember Is Nothing, True, IF(Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)) &lt; Int_MaxOrganizationMember, False))]" sap:VirtualizedContainerService.HintSize="334.4,452" sap2010:WorkflowViewState.IdRef="If_5">
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="653.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[If(Dict_NumberOfOrganizationMember Is Nothing, &quot;Data GSheet belum ada.&quot;, If(Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;) &amp; &quot;: &quot; &amp;  Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), &quot;Nothing&quot;))]" />
+                                    <If sap2010:Annotation.AnnotationText="Verifikasi apakah dokumen lolos persyaratan &quot;Member di Instansi di bawah 5&quot;" Condition="[IF(Dict_NumberOfOrganizationMember Is Nothing, True, IF(Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)), Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;)) &lt; Int_MaxOrganizationMember, False)) And IF(Dict_NumberOfEmail Is Nothing, True, Not Dict_NumberOfEmail.Keys.Contains(String_Email.ToLower.Trim))]" sap:VirtualizedContainerService.HintSize="653.6,2442.4" sap2010:WorkflowViewState.IdRef="If_5">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="300,224.8" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="620,2228" sap2010:WorkflowViewState.IdRef="Sequence_40">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="256.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="Add">
+                                          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="576.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="Add">
                                             <InvokeMethod.TargetObject>
                                               <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[ListOfDict_Acceptable]</InArgument>
                                             </InvokeMethod.TargetObject>
                                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[currentDictionaryOfTextAndText]</InArgument>
                                           </InvokeMethod>
+                                          <If sap2010:Annotation.AnnotationText="Pengondisian Email agar terhindar dari duplikasi" Condition="[Dict_NumberOfEmail is Nothing]" sap:VirtualizedContainerService.HintSize="576.8,96.8" sap2010:WorkflowViewState.IdRef="If_7">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="466.4,366.4" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
+                                                  <ui:MultipleAssign.AssignOperations>
+                                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_68">
+                                                        <ui:AssignOperation.To>
+                                                          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfEmail]</OutArgument>
+                                                        </ui:AssignOperation.To>
+                                                        <ui:AssignOperation.Value>
+                                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[New Dictionary(of string,int32)]</InArgument>
+                                                        </ui:AssignOperation.Value>
+                                                      </ui:AssignOperation>
+                                                    </scg:List>
+                                                  </ui:MultipleAssign.AssignOperations>
+                                                </ui:MultipleAssign>
+                                                <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="423.2,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
+                                                  <InvokeMethod.TargetObject>
+                                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfEmail]</InArgument>
+                                                  </InvokeMethod.TargetObject>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="String_Email.Trim.ToLower" />
+                                                  </InArgument>
+                                                  <InArgument x:TypeArguments="x:Int32">
+                                                    <Literal x:TypeArguments="x:Int32" Value="1" />
+                                                  </InArgument>
+                                                </InvokeMethod>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="300,142.4" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <If Condition="[Dict_NumberOfEmail.Keys.Contains(String_Email.Trim.ToLower)]" sap:VirtualizedContainerService.HintSize="256.8,52.8" sap2010:WorkflowViewState.IdRef="If_12">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <If.Then>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="466.4,191.2" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_24">
+                                                        <ui:MultipleAssign.AssignOperations>
+                                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_75">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Int32">[Dict_NumberOfEmail(String_Email.Trim.ToLower)]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                          </scg:List>
+                                                        </ui:MultipleAssign.AssignOperations>
+                                                      </ui:MultipleAssign>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="300,224.8" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="256.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
+                                                        <InvokeMethod.TargetObject>
+                                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfEmail]</InArgument>
+                                                        </InvokeMethod.TargetObject>
+                                                        <InArgument x:TypeArguments="x:String">[String_Email.Trim.ToLower]</InArgument>
+                                                        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                                                      </InvokeMethod>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                          <If sap2010:Annotation.AnnotationText="Pengondisian Instansi agar terhindar dari duplikasi sebanyak 5 kali" Condition="[Dict_NumberOfOrganizationMember is Nothing]" sap:VirtualizedContainerService.HintSize="576.8,1269.6" sap2010:WorkflowViewState.IdRef="If_10">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="466.4,366.4" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_21">
+                                                  <ui:MultipleAssign.AssignOperations>
+                                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_71">
+                                                        <ui:AssignOperation.To>
+                                                          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfOrganizationMember]</OutArgument>
+                                                        </ui:AssignOperation.To>
+                                                        <ui:AssignOperation.Value>
+                                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[New Dictionary(of string,int32)]</InArgument>
+                                                        </ui:AssignOperation.Value>
+                                                      </ui:AssignOperation>
+                                                    </scg:List>
+                                                  </ui:MultipleAssign.AssignOperations>
+                                                </ui:MultipleAssign>
+                                                <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="423.2,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_9" MethodName="Add">
+                                                  <InvokeMethod.TargetObject>
+                                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfOrganizationMember]</InArgument>
+                                                  </InvokeMethod.TargetObject>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Regex.Replace(String_Instansi.ToLower.Trim, &quot;[\W]+&quot;, &quot;&quot;)" />
+                                                  </InArgument>
+                                                  <InArgument x:TypeArguments="x:Int32">
+                                                    <Literal x:TypeArguments="x:Int32" Value="1" />
+                                                  </InArgument>
+                                                </InvokeMethod>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="543.2,688.8" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <If Condition="[Dict_NumberOfOrganizationMember.Keys.Contains(Regex.Replace(String_Instansi.ToLower, &quot;[\W]+&quot;, &quot;&quot;))]" sap:VirtualizedContainerService.HintSize="500,599.2" sap2010:WorkflowViewState.IdRef="If_11">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <If.Then>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="466.4,191.2" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_22">
+                                                        <ui:MultipleAssign.AssignOperations>
+                                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_73">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:Int32">[Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower.Trim, "[\W]+", ""))]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:Int32">[Dict_NumberOfOrganizationMember(Regex.Replace(String_Instansi.ToLower.Trim, "[\W]+", "")) + 1]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                          </scg:List>
+                                                        </ui:MultipleAssign.AssignOperations>
+                                                      </ui:MultipleAssign>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="300,224.8" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="256.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="Add">
+                                                        <InvokeMethod.TargetObject>
+                                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Int32)">[Dict_NumberOfOrganizationMember]</InArgument>
+                                                        </InvokeMethod.TargetObject>
+                                                        <InArgument x:TypeArguments="x:String">[Regex.Replace(String_Instansi.ToLower.Trim, "[\W]+", "")]</InArgument>
+                                                        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                                                      </InvokeMethod>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="576.8,288.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_16">
+                                            <ui:MultipleAssign.AssignOperations>
+                                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_58">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="sd:DataRow">[DataRow_New]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="sd:DataRow">[DataTable_GSheet.NewRow]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_59">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Nama")]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="x:Object">[String_Nama]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_60">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("NIM")]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="x:Object">[String_NIM]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_61">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Email")]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="x:Object">[String_Email]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_62">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Instansi")]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="x:Object">[String_Instansi]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_63">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Alamat Instansi")]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="x:Object">[String_AlamatInstansi]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_64">
+                                                  <ui:AssignOperation.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[DataRow_New("Waktu Pelaksanaan")]</OutArgument>
+                                                  </ui:AssignOperation.To>
+                                                  <ui:AssignOperation.Value>
+                                                    <InArgument x:TypeArguments="x:Object">[String_WaktuPelaksanaan]</InArgument>
+                                                  </ui:AssignOperation.Value>
+                                                </ui:AssignOperation>
+                                              </scg:List>
+                                            </ui:MultipleAssign.AssignOperations>
+                                          </ui:MultipleAssign>
+                                          <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[DataRow_New]" DataTable="[DataTable_GSheet]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="423.2,188" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                                         </Sequence>
                                       </If.Then>
                                       <If.Else>
@@ -604,69 +874,6 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
-                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423.2,288.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
-                                <ui:MultipleAssign.AssignOperations>
-                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_51">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="sd:DataRow">[DataRow_New]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="sd:DataRow">[DataTable_GSheet.NewRow]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_52">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Nama")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[String_Nama]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_53">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("NIM")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[String_NIM]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_54">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Email")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[String_Email]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_55">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Instansi")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[String_Instansi]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_56">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Alamat Instansi")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[String_AlamatInstansi]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_57">
-                                      <ui:AssignOperation.To>
-                                        <OutArgument x:TypeArguments="x:Object">[DataRow_New("Waktu Pelaksanaan")]</OutArgument>
-                                      </ui:AssignOperation.To>
-                                      <ui:AssignOperation.Value>
-                                        <InArgument x:TypeArguments="x:Object">[String_WaktuPelaksanaan]</InArgument>
-                                      </ui:AssignOperation.Value>
-                                    </ui:AssignOperation>
-                                  </scg:List>
-                                </ui:MultipleAssign.AssignOperations>
-                              </ui:MultipleAssign>
-                              <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[DataRow_New]" DataTable="[DataTable_GSheet]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="423.2,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                             </Sequence>
                           </ActivityAction>
                         </ui:ForEach.Body>
@@ -1087,7 +1294,7 @@
                                                 <av:PointCollection x:Key="ConnectorLocation">165.2,837.1999999999999 165.2,897.1999999999999 574.8,897.1999999999999 574.8,837.1999999999999</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence sap2010:Annotation.AnnotationText="Buat dokumen" DisplayName="Buat Dokumen" sap:VirtualizedContainerService.HintSize="622.4,1912" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                            <Sequence sap2010:Annotation.AnnotationText="Buat dokumen" DisplayName="Buat Dokumen" sap:VirtualizedContainerService.HintSize="200,114.4" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                               <Sequence.Variables>
                                                 <Variable x:TypeArguments="scg:Dictionary(x:String, scg:List(scg:Dictionary(x:String, x:String)))" Name="GroupOfDict_Organization" />
                                               </Sequence.Variables>
@@ -1097,8 +1304,8 @@
                                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Total berkas diterima: &quot; &amp; ListOfDict_Acceptable.Count.ToString]" />
-                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="560,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="657.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Total berkas diterima: &quot; &amp; ListOfDict_Acceptable.Count.ToString]" />
+                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="657.6,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
                                                 <ui:MultipleAssign.AssignOperations>
                                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
@@ -1112,13 +1319,13 @@
                                                   </scg:List>
                                                 </ui:MultipleAssign.AssignOperations>
                                               </ui:MultipleAssign>
-                                              <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, scg:List(scg:Dictionary(x:String, x:String)))" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="560,1494.4" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[GroupOfDict_Organization]">
+                                              <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, scg:List(scg:Dictionary(x:String, x:String)))" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="657.6,1876.8" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[GroupOfDict_Organization]">
                                                 <ui:ForEach.Body>
                                                   <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, scg:List(scg:Dictionary(x:String, x:String)))">
                                                     <ActivityAction.Argument>
                                                       <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, scg:List(scg:Dictionary(x:String, x:String)))" Name="KeyValuePair_Current" />
                                                     </ActivityAction.Argument>
-                                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526.4,1306.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="624,1688.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                                       <Sequence.Variables>
                                                         <Variable x:TypeArguments="x:String" Name="String_OrganizationName" />
                                                         <Variable x:TypeArguments="x:String" Name="String_FullFilename" />
@@ -1129,7 +1336,7 @@
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="483.2,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="580.8,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
                                                         <ui:MultipleAssign.AssignOperations>
                                                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
@@ -1151,8 +1358,8 @@
                                                           </scg:List>
                                                         </ui:MultipleAssign.AssignOperations>
                                                       </ui:MultipleAssign>
-                                                      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[String_FullFilename]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="483.2,155.2" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="TemplateDokumen\Surat Jurusan.docx" />
-                                                      <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="[Int_CurrentMember]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="483.2,52.8" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[KeyValuePair_Current.Value]">
+                                                      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[String_FullFilename]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="580.8,155.2" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="TemplateDokumen\Surat Jurusan.docx" />
+                                                      <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="[Int_CurrentMember]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="580.8,52.8" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[KeyValuePair_Current.Value]">
                                                         <ui:ForEach.Body>
                                                           <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
                                                             <ActivityAction.Argument>
@@ -1182,24 +1389,46 @@
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
                                                       </ui:ForEach>
-                                                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Application: PT. PGAS Telekomunikasi Nusantara (PGNCOM).docx - Word" sap:VirtualizedContainerService.HintSize="483.2,756.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" OpenMode="IfNotOpen" ScopeGuid="26db010a-9c0d-4ae6-a9a6-564a84fde83b" Version="V2">
+                                                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Application: PT. PGAS Telekomunikasi Nusantara (PGNCOM).docx - Word" sap:VirtualizedContainerService.HintSize="580.8,1139.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" OpenMode="IfNotOpen" ScopeGuid="26db010a-9c0d-4ae6-a9a6-564a84fde83b" Version="V2">
                                                         <uix:NApplicationCard.Body>
                                                           <ActivityAction x:TypeArguments="x:Object">
                                                             <ActivityAction.Argument>
                                                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                                             </ActivityAction.Argument>
-                                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,465.6" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="547.2,848" sap2010:WorkflowViewState.IdRef="Sequence_44">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                 </scg:Dictionary>
                                                               </sap:WorkflowViewStateService.ViewState>
-                                                              <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,154.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][d(ctrl)]s[u(ctrl)][u(hk)][d(hk)][d(ctrl)]p[u(ctrl)][u(hk)]" Version="V3" />
-                                                              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DelayBefore="2" DisplayName="Click 'Print'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="26db010a-9c0d-4ae6-a9a6-564a84fde83b" Version="V3">
-                                                                <uix:NClick.Target>
-                                                                  <uix:TargetAnchorable CvElementArea="238, 143, 104, 109" CvTextArea="273, 210, 36, 15" CvTextArgument="Print" CvType="Button" DesignTimeRectangle="240, 143, 103, 107" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Print'" FullSelectorArgument="&lt;uia cls='NetUIElement' name='Print' /&gt;&lt;uia automationid='GroupPrintSettings' cls='NetUISlabContainer' name='Print' /&gt;&lt;uia cls='NetUISimpleButton' name='Print' /&gt;" FuzzySelectorArgument="&lt;uia cls='NetUIElement' name='Print' /&gt;&lt;uia automationid='GroupPrintSettings' cls='NetUISlabContainer' name='Print' /&gt;&lt;uia cls='NetUISimpleButton' name='Print' role='Button' automationid='' check:fulltext='Print' /&gt;" Guid="01db7ceb-6ea4-44fa-9466-090fb3196eb3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGsAAABvCAYAAADrLj4aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAMISURBVHhe7ZnBjdpAGEZTDT2kC8SNRaIQDmmEOighB0qgAW5caIDwIz8y8f7IDrCe+ZLvSe/gscczmid2tey32Wx2sRo6lpD3WKZdHEuIh7Hm87ltRHAsAcGxBATHEhAcS0BwLAHBsQQExxIQHEtAcCwBwbEEBMcSEBxLQHAsAcGxBATHEhCkY63X65fM3tmiIB/rdDo9pWNNrGN1ZJNa07E6skmt6Vgd2aTWdKyObFJrOlZHNqk1HasjmzSli8Xislwub4daGve+//h5M66zEGOMubwn3lmuEcbasYdyT7WEZmOtVqtPBxjGvSlihbGHck+1hGZjZYcXxr0y1isOxQrLPdUSpGO9y6H1aguOdXVovdqCY10dWq+24FhXh9arLUjG+gqztcLs2akFuVhTm+1tasGxBsz2NrXgWANme5tacKzCbP1yrJbgWIXZ+uVYLUE+Vva93xizd2Xrl2O1hGZjPfoit28WYozZu/r6i9yRxr8nPj4+0kMs5fCzP3Yzx8aKtf0vkjcah8rh/60xN3tni4JjCQj/TKzsR16mY1XSn6yObFJrOlZHNqk148BfMXtni4J0rP9FcCwBwbEEBMcSEBxLQHAsAcGxBATHEhAcS0BwLAHBsQQExxIQHEtAcCwBwbEEBMcSEBxLQHAsAcGxBATHEhAcS0BwLAGh+ViHw6Hb0W+Ox2P6bN/z+Xwzu6ckyMTabDb3sWBMhGdiZevVFiRj7ff729h2u/3j2XfoWC+YHd5ut7uNESt+LAaMBzHe/2RxTWwo75eUc2sKkrE4bMaI1f9dRpzyOoj5cR3zg3KeP1kv2D+8+DQFMc4zxOof8KNY5TPM5dqxXpDDKylDhf0DxyxWeR061hsdc3iOlUyqoWM51t3+3K/8s+BZwbGSudB/tpbQfCzrWFKCYwkIjiUgOJaA4FgCgmMJCI4lIDiWgOBYAoJjCQiOJSA4loDgWAKCYwkIjiUgOJaA4FgCgmMJCI4lIDiWgOBYAoJjCQiOJSA8jGXaw7GE+BTLtq9jyTi7/AKxZ87Dc9ED2wAAAABJRU5ErkJggg==" InformativeScreenshot="81dd5fdc07a032cbc443f8e1b34cdedc.png" ScopeSelectorArgument="&lt;wnd app='winword.exe' cls='OpusApp' title='*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
-                                                                </uix:NClick.Target>
-                                                              </uix:NClick>
+                                                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.8,344.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                                                                <ui:CommentOut.Body>
+                                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,266.4" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,154.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][d(ctrl)]s[u(ctrl)][u(hk)][d(hk)][d(ctrl)]p[u(ctrl)][u(hk)]" Version="V3" />
+                                                                  </Sequence>
+                                                                </ui:CommentOut.Body>
+                                                              </ui:CommentOut>
+                                                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.8,348" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                                                                <ui:CommentOut.Body>
+                                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,269.6" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DelayBefore="2" DisplayName="Click 'Print'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="26db010a-9c0d-4ae6-a9a6-564a84fde83b" Version="V3">
+                                                                      <uix:NClick.Target>
+                                                                        <uix:TargetAnchorable CvElementArea="238, 143, 104, 109" CvTextArea="273, 210, 36, 15" CvTextArgument="Print" CvType="Button" DesignTimeRectangle="240, 143, 103, 107" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Print'" FullSelectorArgument="&lt;uia cls='NetUIElement' name='Print' /&gt;&lt;uia automationid='GroupPrintSettings' cls='NetUISlabContainer' name='Print' /&gt;&lt;uia cls='NetUISimpleButton' name='Print' /&gt;" FuzzySelectorArgument="&lt;uia cls='NetUIElement' name='Print' /&gt;&lt;uia automationid='GroupPrintSettings' cls='NetUISlabContainer' name='Print' /&gt;&lt;uia cls='NetUISimpleButton' name='Print' role='Button' automationid='' check:fulltext='Print' /&gt;" Guid="01db7ceb-6ea4-44fa-9466-090fb3196eb3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGsAAABvCAYAAADrLj4aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAMISURBVHhe7ZnBjdpAGEZTDT2kC8SNRaIQDmmEOighB0qgAW5caIDwIz8y8f7IDrCe+ZLvSe/gscczmid2tey32Wx2sRo6lpD3WKZdHEuIh7Hm87ltRHAsAcGxBATHEhAcS0BwLAHBsQQExxIQHEtAcCwBwbEEBMcSEBxLQHAsAcGxBATHEhCkY63X65fM3tmiIB/rdDo9pWNNrGN1ZJNa07E6skmt6Vgd2aTWdKyObFJrOlZHNqk1HasjmzSli8Xislwub4daGve+//h5M66zEGOMubwn3lmuEcbasYdyT7WEZmOtVqtPBxjGvSlihbGHck+1hGZjZYcXxr0y1isOxQrLPdUSpGO9y6H1aguOdXVovdqCY10dWq+24FhXh9arLUjG+gqztcLs2akFuVhTm+1tasGxBsz2NrXgWANme5tacKzCbP1yrJbgWIXZ+uVYLUE+Vva93xizd2Xrl2O1hGZjPfoit28WYozZu/r6i9yRxr8nPj4+0kMs5fCzP3Yzx8aKtf0vkjcah8rh/60xN3tni4JjCQj/TKzsR16mY1XSn6yObFJrOlZHNqk148BfMXtni4J0rP9FcCwBwbEEBMcSEBxLQHAsAcGxBATHEhAcS0BwLAHBsQQExxIQHEtAcCwBwbEEBMcSEBxLQHAsAcGxBATHEhAcS0BwLAGh+ViHw6Hb0W+Ox2P6bN/z+Xwzu6ckyMTabDb3sWBMhGdiZevVFiRj7ff729h2u/3j2XfoWC+YHd5ut7uNESt+LAaMBzHe/2RxTWwo75eUc2sKkrE4bMaI1f9dRpzyOoj5cR3zg3KeP1kv2D+8+DQFMc4zxOof8KNY5TPM5dqxXpDDKylDhf0DxyxWeR061hsdc3iOlUyqoWM51t3+3K/8s+BZwbGSudB/tpbQfCzrWFKCYwkIjiUgOJaA4FgCgmMJCI4lIDiWgOBYAoJjCQiOJSA4loDgWAKCYwkIjiUgOJaA4FgCgmMJCI4lIDiWgOBYAoJjCQiOJSA8jGXaw7GE+BTLtq9jyTi7/AKxZ87Dc9ED2wAAAABJRU5ErkJggg==" InformativeScreenshot="81dd5fdc07a032cbc443f8e1b34cdedc.png" ScopeSelectorArgument="&lt;wnd app='winword.exe' cls='OpusApp' title='*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                                                      </uix:NClick.Target>
+                                                                    </uix:NClick>
+                                                                  </Sequence>
+                                                                </ui:CommentOut.Body>
+                                                              </ui:CommentOut>
                                                             </Sequence>
                                                           </ActivityAction>
                                                         </uix:NApplicationCard.Body>
