@@ -1,7 +1,7 @@
 *.txt
-\Surat Pengantar\*.*
-\All Documents\*.*
-\Scan\*.*
+\Surat Pengantar\*.docx
+\All Documents\*.pdf
+\Scan\*.pdf
 
 !\Surat Pengantar\*.txt
 !\All Documents\*.txt
