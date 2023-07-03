@@ -28895,18 +28895,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\aldin\\.nuget\\packages\\": {},
+    "C:\\Users\\aldin\\AppData\\Local\\UiPath\\NugetFallbackFolder": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Tugas Akhir",
       "projectName": "Tugas Akhir",
-      "projectPath": "C:\\Users\\LENOVO\\Desktop\\Tugas Akhir Revisi\\Tugas Akhir\\.local",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Desktop\\Tugas Akhir Revisi\\Tugas Akhir\\.local",
+      "projectPath": "C:\\Users\\aldin\\Documents\\UiPath\\Skripsi Farhan\\.local",
+      "packagesPath": "C:\\Users\\aldin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aldin\\Documents\\UiPath\\Skripsi Farhan\\.local",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Users\\aldin\\AppData\\Local\\UiPath\\NugetFallbackFolder"
       ]
     },
     "frameworks": {
@@ -28968,7 +28968,7 @@
             "version": "[1.17.0-preview, 1.17.0-preview]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\LENOVO\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\aldin\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
