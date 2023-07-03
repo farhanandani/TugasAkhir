@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tugas-akhir-383514",
+  "private_key_id": "46c35276fe1f1878b91aa64ac6b69e20d40cfc7c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2IykbZij81KDk\nE2lGE9AJdY4DYJYiKf842ajQAvSBN1pRJXwwq2mcMOSdb6cJMtXMgtqPeqHsBPa4\nrO2PRCcfYZDrEtc788nTzZcU6DwnKKREhQrOvdKf/t8xXGxrpi2aZew0HtzWfrMG\nQ2jDKBkAXeqRQizMpqV6ElIFag9XRTczvOghROtaVWNFufMEYRaw3wV2FlL4JKja\nze4lgtdfaOZEY7Yibww8HaT5qNsdWqHHqa1VdtLi2gwKOdgRasVqcagVEQqKyj54\ngEzXL2JEV7FnCdsFr1XX372BD/HkBcAIGzUxY1iSIksBDVraP73K+O8U/5NVIkFK\n/PSU8KFjAgMBAAECggEABorIxTUsL7irdsXDuEKp7E0OpsxnWB7ODgqzZ5VTlviY\nA+YmydC+YF/ZNlZ2V3w99bSViSXMfx/GhOehOM4n4Zatj+QDWyHsk/EEhjm5P2bU\nT6m/s6FZ2WlcNves5Uj4xlz22QBqykGOyKDPOINOMpcs/76ywT8THold7NfcaTQB\nsqpvl7dNrdn/M43pLzz2VwFhhk86mmLxmmvTQiE+TZdm3VQHf1Obk567S92NAl6P\n8lHc7LG+TjeRlIC/ALoRF6HhWayPyzuQ7A8Zf0vFc/NNDVWul5PhvD7r11d2RxBG\nULc3/DdQzit6ZsLMa0jfnD321O8yLzJprS6DpFsLIQKBgQDpOBeQ4FsizoxdVhes\nQIgJfj3j27LFPnBlB8pKeAZTfPrkGR/lh+7Fyoql0y//23HPow+LjLecCxqLchfu\nYsNCPlJefW9qm3C0WVrPxOM3LmEUaRw+aDtrWSjmwjnqeqY6a7LaPd9BuvessVCx\nogXM3uFGNrrJ4Jz+Q5zmDDQO6QKBgQDH7bYPdhqR09BNwrUeZvVfasZ75m7DtS+W\n+qlpLKuqglNscrnUJ1KAYhkYiHkyRFk8MCaAxaEXF31nWzJHe6R8rhUs7jTuecAv\nB2+0fdK4fhCav2zbxWvxcPCvWVadNqKUgssGZ4VIfKeeuHFG5k4SS9bx2epm4ktP\nsCLZXnd2awKBgGKqVl32bNgG5h8+ovk+u864V9qkQbdsuQQlDZH/wT1k7Ie/kVz7\n6ypGi+2nsPDfmACuDY+OUsdzcyF3fWRe6BiIYTSUgKRran0CKIcp1q6rsmp+JXLJ\nignaSJGHrhTjGpwwoBPwhRk7zjiDM45S631G9atM0C1EF2cCl8hDdWqxAoGAMysG\njnx2nl3skQpFGovVPt9v/yPhs1r63BQ5KX7STKhgO4A9SSvrNIpmy92ZzyCpCft0\nzz5FVUigwsQXYS4m0fYn20D38RTd9+taToJpXOh+zWwyqyii0L9MCkS+IyxpfcLf\nvTrfZMbqi3e/HhsxXgNk9q8EC+LczX9R2/oObxMCgYEA4JBvKyFJI54BaReYivgQ\ngTC0cXuC6hhfQlulYc6sL4MQwWNZczSFQO1beKsbLdc0sxCh0pECbvB8gbpUCT/z\nzOJW1I7TqiBqNg9axYp05HdtmV9agWkoVz2YyZRpWVVC4X7TJRLJn/7jt6UtvKlG\n6aq9yoQFpe9c1yNqeM+Dgw4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "uipath@tugas-akhir-383514.iam.gserviceaccount.com",
+  "client_id": "106091091321548528838",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/uipath%40tugas-akhir-383514.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

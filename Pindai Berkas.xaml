@@ -1,0 +1,306 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Pindai_Berkas" this:Pindai_Berkas.in_String_DestinationFolder="[Directory.GetCurrentDirectory &amp; &quot;\Scan&quot;]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_String_DestinationFolder" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>788,2451.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Pindai_Berkas_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Api</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Pindai_Berkas" sap:VirtualizedContainerService.HintSize="766.4,2386.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Nama" />
+      <Variable x:TypeArguments="x:String" Name="String_DestinationFolder" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="704,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[String_DestinationFolder]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_String_DestinationFolder]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'brother iprint&amp;scan.exe'" FileName="C:\Program Files (x86)\Brother\iPrint&amp;Scan\brother iprint&amp;scan.exe" sap:VirtualizedContainerService.HintSize="704,1855.2" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="cdad17a31124c7db4c518a4d6351e0a0" Selector="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Brother iPrint&amp;amp;Scan' /&gt;">
+      <ui:OpenApplication.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="670.4,1708" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="608,1596" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="545.6,24.8" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+              <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="2000" DisplayName="Click 'graphic'" sap:VirtualizedContainerService.HintSize="545.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f8a64a1-b1db-433d-91a3-0cd805a8711f" InformativeScreenshot="ff292580051ac2dfda2ef749969dc1fb" Selector="&lt;ctrl idx='2' name='Rodem.UI.Core.DisplayObjects.FunctionDisplayObject' role='list item' /&gt;&lt;ctrl name='Scan' role='push button' /&gt;&lt;ctrl idx='2' role='graphic' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="3000" DisplayName="Click 'text  Scan'" sap:VirtualizedContainerService.HintSize="545.6,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f27c1051-84f6-4ef8-925c-58127e230f4c" InformativeScreenshot="d5cc5edac7414bad06e2810310a8f5ed" Selector="&lt;ctrl name='Scan' role='push button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="50000" DisplayName="Click 'push button  Save to PC'" sap:VirtualizedContainerService.HintSize="545.6,107.2" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caa91f51-974b-417f-b9a5-fb4d40bf365d" InformativeScreenshot="f5f240899756f6880b1db1e9e69c758f" Selector="&lt;ctrl name='Rodem.UI.Core.DisplayObjects.ScanActionDisplayObject' role='list item' /&gt;&lt;ctrl name='Save to PC' role='push button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Save to PC" sap:VirtualizedContainerService.HintSize="545.6,977.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="839a66d3-88da-4b05-b6a4-ee84deb284b5" Version="V2">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="512,646.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,531.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'File Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="839a66d3-88da-4b05-b6a4-ee84deb284b5" Text="[&quot;Berkas &quot; &amp; DateTime.Now.ToString(&quot;yyyy_MM_dd_ (HH_mm_ss)&quot;)]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CvElementArea="20, 91, 533, 32" CvTextArea="22, 93, 524, 21" CvTextArgument="AN PRAKTIKUM FISDAS 1_MEDAN MAGNET PADA SOLENOIDA_SULTAN FAKHRI" CvType="InputBox" DesignTimeRectangle="23, 94, 529, 28" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'LAPORAN PRAKTIKUM'" FullSelectorArgument="&lt;ctrl role='editable text' /&gt;" FuzzyAccuracy="0.75" FuzzySelectorArgument="&lt;ctrl role='editable text' automationid='' /&gt;" Guid="68683f9a-1041-4e7c-9839-376403fbed23" ImageBase64="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" InformativeScreenshot="c2f65b6c21bb29fd2485071ea135e9ea.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Save to PC' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArgument="File Name:" CvType="Text" DesignTimeRectangle="22, 63, 66, 20" ElementType="Text" FriendlyName="'File Name'" FullSelectorArgument="&lt;ctrl name='File Name' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='File Name' role='text' automationid='' check:text='File Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEYAAAAYCAYAAABHqosDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHiSURBVFhH7ZaNjcMgDIUzFiuVecIwMEmTWdq44IBrO3DpT+6k6HjSk5oYDP5qaIfb7Qb3+33Xy7J87DOqg2mog2kIwfw2nDOqg2mog2mog2lIgPGXAYZB+eJZzILHYicYzQBmnDYQat5odmBSbhvyC64ZXMxdDf2hNmDMeKUO0X4WexCY6C2AfwQmWQjBWHDOYBdKBicDcx1jEWaECQutgJlG6oJkDU0ogwkZgjxSFTDBUl7M7eYcSKnSvhwEhMzjASzNMcCmrFI5ab3SzYeAQSgGxqmA8Lgp68tzC0z5zDe+BRMs6yo1HsHEtQgWFfwcE2x8jvBoCRzTypmBajCcYvLF74PxcWHdIVMabz09C3Ew+Jhyl43vHSUZl3OT1jjvKrlePX+Cx+cc0DHrZw0UTeN/BlO+pXVjtY2v73juPTBivliPHzFlNukwMLpjtIU2YKKovVVhOLZAwxci/ikYEa+IwCR/eseko8SPTc1CNTBReBdYty1cVvklmDUujlpFh4Apv0j8sl28fe3y5crdkdqaClMXJYJg8ffBRGFO+Us1u/j3AZ/V5fsVmAxCnFd2v7wMJkoXnoSdlPMaF77smFVlHTJNqICpAdEmEG/6bOpgGhJgOpynOpiGOpiGOpiqAB7NMO1izZK0FwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="839a66d3-88da-4b05-b6a4-ee84deb284b5" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CvElementArea="243, 662, 151, 32" CvTextArea="298, 670, 32, 15" CvTextArgument="Save" CvType="Button" DesignTimeRectangle="243, 664, 150, 30" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Save'" FullSelectorArgument="&lt;ctrl name='Save' role='push button' /&gt;" FuzzyAccuracy="0.79" FuzzySelectorArgument="&lt;ctrl name='Save' role='push button' automationid='' check:text='Save' /&gt;" Guid="27a6ff68-77b3-4f3b-9605-7028230dae85" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAiCAYAAACnZsAPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJoSURBVHhe7Zu7juowFEXzWf6mfAsNQukQ0CNRUkBLwxcgKEBCQEOFhHjDGR/HDnbiedyZXDfeS/IMdpzQLO3jIJ2EAAgARANBqIh2v99pOp3SYDCgVqtFjUYDA+Pbwa70+32aTCZ0uVy0TW8c0fb7PfV6PZrNZnQ+n/UqAD/jer3ScrmkTqdDm81Gr+YUonGSsWTH41GvAPA7brcbtdttOp1OesUSjcslJxkAdbDdbmk8HuuZJRqfyXy1FYDfYCqkoRCND3MA1Am/JBgK0exFAOoAooEgQDQQBIgGghC9aKM0oSSxRjrSV0CdRCzagjJRFkuupZn8C+omXtEWGYlEUAarghBxoo0olaXyy0qpZPSVVf+9qgwXizoxzb0i7qSMWDT2SCgJxCextshSK/FcuVypGL5uEjKXzH5udX9cRC2awkqt7zxgWQp5Rqm8J5V6aXhuUsv+bFDfY+2PDIhmUOJUU6f8VvpOqWrCmWsmKasj3jMhRLNxXhBykWzxnESTvOd22dSiRX4mKwPRHCxhPOWvLFqxh//bSajSMd4y6SNe0Ti9SmXSSSIn3SS6tDqiyZ2ZECTkwd99lO83Oilx6ftiIuJE06XRHqUEc85aUpJKoknyPb70Kj8/3vMZE7FoICQQDQQBooEgeEVrNpv6EwD14BWNmz/RnALq4vF4qJY7QyEadxivVis9A+BvcDP6cDjUM0s0TjPuMObmTwD+wvP5pG63S4fDQa9YojHr9VrF3W63U5sB+Bder5dKMpZsPp/r1RxHNIbb2LnDmJs/+TCHgfHTwSHF5dJOMkNFNAD+BxANBIDoAy3RtNmdRnoTAAAAAElFTkSuQmCC" InformativeScreenshot="a82964fdd16688d5052fc155cb047a7a.png" ScopeSelectorArgument="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Save to PC' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CvTextArgument="Save" CvType="Text" DesignTimeRectangle="300, 669, 31, 20" ElementType="Text" FriendlyName="'Save'" FullSelectorArgument="&lt;ctrl name='Save' role='push button' /&gt;&lt;ctrl name='Save' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Save' role='push button' /&gt;&lt;ctrl name='Save' role='text' automationid='' check:text='Save' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACMAAAAYCAYAAABwZEQ3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEZSURBVEhL7ZTdFcMgCIUdi5ncx2UcxWUoGI38mT41pw9+56RtIsL1QprwjzhidhwxO46YHU5MzQlTEleuY+X3CDENC9ji9CwX+nyHJaYVhARY3qocIJypmKktj13pgqMWxnt7y++Hw/m5F7zjamZagR4IG3taycI5LUAXZnh9On0JkXl9fDDA8vT2pBZOeBeomfZkkjDg+3l6+XvS64h4wouZ9ORevX3b1mm9U3NtOu4vPaN7MYwa6quYFKecIda9bNEQE8yI5VmMTBpYbcXcMfwtHe0u65ZELDHsgmmJOpFyiRhtVGIosgAg0LDqVNF/GB3U1BPOjDbIyzihek+JnDPEFRO5YPPreWG+tOldjpgdR8yOPxKD+AHsGRGq8H5sjgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="673, 152, 575, 716" FilePath="C:\Program Files (x86)\Brother\iPrint&amp;Scan\brother iprint&amp;scan.exe" IconBase64="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" InformativeScreenshot="01bbcf14f226438f92329ccfdbd47063.png" Selector="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Save to PC' /&gt;" Title="Save to PC" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenApplication.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:OpenApplication>
+    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="704,90.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'brother iprint&amp;scan.exe'" sap:VirtualizedContainerService.HintSize="704,107.2" sap2010:WorkflowViewState.IdRef="CloseWindow_4" InformativeScreenshot="4e00a9387e86916b181015b818921742" Selector="&lt;wnd app='brother iprint&amp;amp;scan.exe' cls='HwndWrapper*' title='Brother iPrint&amp;amp;Scan' /&gt;" WaitForReady="NONE" />
+  </Sequence>
+</Activity>

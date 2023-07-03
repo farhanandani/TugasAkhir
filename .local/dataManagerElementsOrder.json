@@ -1,0 +1,81 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "String_DestinationFolder&Sequence_1",
+        "DataTable_GSheet&Sequence_1",
+        "ListOfDict_Acceptable&Sequence_1",
+        "ListOfDict_Denied&Sequence_1",
+        "ListOfDict_ReachMaxMember&Sequence_1",
+        "DataTable_CurrentScanned&Sequence_1",
+        "String_NumberOfDocumentToScan&Sequence_2",
+        "Int_MaxOrganizationMember&Sequence_4",
+        "Int_MaxRetry&Sequence_4",
+        "ListOfDict_CurrentScanned&Sequence_4",
+        "ListOfDict_Gsheet&Sequence_4",
+        "Dict_NumberOfOrganizationMember&Sequence_4",
+        "String_Nama&Sequence_39",
+        "String_NIM&Sequence_39",
+        "String_Email&Sequence_39",
+        "String_Instansi&Sequence_39",
+        "String_AlamatInstansi&Sequence_39",
+        "String_WaktuPelaksanaan&Sequence_39",
+        "DataRow_New&Sequence_40",
+        "DictOfGroup_Organization&Sequence_6",
+        "Int_CurrentMemberLength&Sequence_7",
+        "String_Nama&Sequence_9",
+        "String_NIM&Sequence_9",
+        "String_Instansi&Sequence_9",
+        "String_AlamatInstansi&Sequence_9",
+        "String_Email&Sequence_9",
+        "String_WaktuPelaksanaan&Sequence_9",
+        "String_EmailBody&Sequence_13",
+        "String_EmailBody&Sequence_15",
+        "GroupOfDict_Organization&Sequence_18",
+        "String_OrganizationName&Sequence_19",
+        "String_FullFilename&Sequence_19",
+        "Int_CurrentMember&Sequence_19"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Spreadsheet.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DataTable_Berkas&Sequence_1",
+        "String_SpreadSheetID&Sequence_1",
+        "DataTable_Clone&Sequence_1",
+        "String_TempFolder&Sequence_1",
+        "String_DestinationFile&Sequence_1",
+        "RegMatches_Nama&Sequence_15",
+        "RegMatches_NIM&Sequence_15",
+        "RegMatches_Email&Sequence_15",
+        "RegMatches_NamaInstansi&Sequence_15",
+        "RegMatches_AlamatInstansi&Sequence_15",
+        "RegMatches_TanggalPelaksanaan&Sequence_15",
+        "DataRow_New&Sequence_15",
+        "String_WaktuPelaksanaan&Sequence_15",
+        "String_DocumentText&Sequence_15"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_String_DestinationFolder",
+        "out_DataTable_GSheet",
+        "out_DataTable_CurrentScanned"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

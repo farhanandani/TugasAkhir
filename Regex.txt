@@ -1,0 +1,20 @@
+Nama Lengkap
+(?<=Nama Lengkap . | Nama Lengkap : | Nama Lengkap + )[A-Za-z0-9]+( [A-Za-z0-9]+)+
+(?<=(nama lengkap).*)([a-z]+\s?)
+
+NIM
+(?<=NIM : |NM : |NIM )\d+
+(?<=(nim).*)(\d+)
+
+Email
+(?<=(email).*)([\w+\s]\.?){1,}\@([\w+\s]\.?){1,}(?=\s+\w+)
+
+Nama Instansi 
+(?<=(Nama instansi)).*
+
+Alamat Instansi
+(?<=(alamat instansi)).*
+
+Waktu Pelaksanaan
+(?<=(waktu pelaksanaan).*)((\d{2}\s?\w+\s?\d+)(\s?\-?\s?)?){1,}
+

@@ -1,0 +1,20 @@
+Nama
+(?<=(nama lengkap)\s?\W+?\s)([a-z]+\s?){1,}\n
+
+NIM
+(?<=(nim)\s?\W+?\s)[0-9]+
+
+Email
+(?<=(email)\s?\W+?\s)([a-z0-9]+\s?\.?\s?){1,}\@(student\s?\.?\s?)(itera\s?\.?\s?)(ac\s?\.?\s?)(id)
+
+Nama Instansi
+(?<=(nama instansi)\s?\W+?\s)([a-z]+\s?){1,}\n
+
+Alamat Instansi
+(?<=(alamat instansi)\s?\W+?\s)([a-z]).*
+
+Tanggal Pelaksanaan
+(?<=(waktu pelaksanaan)\s?\W+?\s)((\d{2}\s?)([a-z]{3,}\s?)(\d{4}))(\s?\-?\s?)?((\d{2}\s?)([a-z]{3,}\s?)(\d{4}))?
+
+
+icqultvuffvcelol
