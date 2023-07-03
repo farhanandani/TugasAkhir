@@ -19,13 +19,13 @@ namespace TugasAkhir
     {
         public CodedWorkflow()
         {
-            _ = new System.Type[]{typeof(UiPath.UIAutomationNext.API.Contracts.IRuntimeTargetAppSyncFactory), typeof(UiPath.Activities.System.API.ISystemService), typeof(UiPath.Testing.API.ITestingService)};
+            _ = new System.Type[]{typeof(UiPath.Testing.API.ITestingService), typeof(UiPath.Activities.System.API.ISystemService), typeof(UiPath.UIAutomationNext.API.Contracts.IRuntimeTargetAppSyncFactory)};
         }
 
-        protected UiPath.UIAutomationNext.API.Contracts.IRuntimeTargetAppSyncFactory uiAutomation { get => serviceContainer.Resolve<UiPath.UIAutomationNext.API.Contracts.IRuntimeTargetAppSyncFactory>() ; }
+        protected UiPath.Testing.API.ITestingService testing { get => serviceContainer.Resolve<UiPath.Testing.API.ITestingService>() ; }
 
         protected UiPath.Activities.System.API.ISystemService system { get => serviceContainer.Resolve<UiPath.Activities.System.API.ISystemService>() ; }
 
-        protected UiPath.Testing.API.ITestingService testing { get => serviceContainer.Resolve<UiPath.Testing.API.ITestingService>() ; }
+        protected UiPath.UIAutomationNext.API.Contracts.IRuntimeTargetAppSyncFactory uiAutomation { get => serviceContainer.Resolve<UiPath.UIAutomationNext.API.Contracts.IRuntimeTargetAppSyncFactory>() ; }
     }
 }
