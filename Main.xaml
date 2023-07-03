@@ -367,7 +367,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">375.20000000000005,324.4 375.20000000000005,394.4000000000001</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Proses verifikasi berkas" DisplayName="Seq. Verification" sap:VirtualizedContainerService.HintSize="200,114.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence sap2010:Annotation.AnnotationText="Proses verifikasi berkas" DisplayName="Seq. Verification" sap:VirtualizedContainerService.HintSize="716,3328.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Int32" Name="Int_MaxOrganizationMember" />
                         <Variable x:TypeArguments="x:Int32" Name="Int_MaxRetry" />
@@ -413,7 +413,7 @@
                                 <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[ListOfDict_Gsheet]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[DataTable_GSheet.AsEnumerable.Select(Function(Row) Row.Table.Columns.Cast(of DataColumn).ToDictionary(Function(Col) Col.ToString, Function(Col) Row(Col.ToString).ToString)).ToList]</InArgument>
+                                <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[IF(DataTable_GSheet Is Nothing, Nothing, DataTable_GSheet.AsEnumerable.Select(Function(Row) Row.Table.Columns.Cast(of DataColumn).ToDictionary(Function(Col) Col.ToString, Function(Col) Row(Col.ToString).ToString)).ToList)]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
@@ -421,7 +421,7 @@
                                 <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[ListOfDict_Gsheet]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[IF(ListOfDict_Gsheet.Count &gt; 0, ListOfDict_Gsheet, Nothing)]</InArgument>
+                                <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[IF(ListOfDict_Gsheet Is Nothing, Nothing, IF(ListOfDict_Gsheet.Count &gt; 0, DataTable_GSheet.AsEnumerable.Select(Function(Row) Row.Table.Columns.Cast(of DataColumn).ToDictionary(Function(Col) Col.ToString, Function(Col) Row(Col.ToString).ToString)).ToList, Nothing))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
